@@ -1,0 +1,10 @@
+.pad {
+    transition: all 0.07s ease;
+    /* Các thuộc tính thiết kế pad của bạn... */
+}
+
+.pad.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
