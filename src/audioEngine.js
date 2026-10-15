@@ -7,7 +7,7 @@ class PolyphonicAudioEngine {
     constructor() {
         // Ánh xạ tên âm thanh (phải khớp với thuộc tính data-sound trong HTML) với đường dẫn file
         this.soundMap = {
-            'kick': 'assets/sounds/Kick.wav',
+            'kick': 'assets/sounds/Bass.wav',
             'snare': 'assets/sounds/Snare.wav',
             'hihat': 'assets/sounds/Overhead.wav',
             'tom': 'assets/sounds/Tom.wav',
