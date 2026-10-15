@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit Engine - Contract-First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Web Audio Drum Kit</h1>
+        
+        <!-- HỢP ĐỒNG DỮ LIỆU (DATA CONTRACT) -->
+        <!-- JS sẽ truy xuất phần tử dựa vào [data-key] và đọc thuộc tính [data-sound] -->
+        <div class="drum-kit" id="drum-kit">
+            <button class="pad" data-key="KeyA" data-sound="kick" aria-label="Kick Drum (Phím A)">
+                <kbd>A</kbd>
+                <span class="sound-label">Kick</span>
+            </button>
+            <button class="pad" data-key="KeyS" data-sound="snare" aria-label="Snare Drum (Phím S)">
+                <kbd>S</kbd>
+                <span class="sound-label">Snare</span>
+            </button>
+            <button class="pad" data-key="KeyD" data-sound="hihat" aria-label="Hi-Hat (Phím D)">
+                <kbd>D</kbd>
+                <span class="sound-label">Hi-Hat</span>
+            </button>
+            <button class="pad" data-key="KeyF" data-sound="tom" aria-label="Tom (Phím F)">
+                <kbd>F</kbd>
+                <span class="sound-label">Tom</span>
+            </button>
+            <button class="pad" data-key="KeyG" data-sound="clap" aria-label="Clap (Phím G)">
+                <kbd>G</kbd>
+                <span class="sound-label">Clap</span>
+            </button>
+        </div>
+
+        <!-- Khu vực điều khiển Recorder (Sẽ kết nối ở Milestone 4) -->
+        <section class="controls">
+            <button id="btn-record" type="button">🔴 Record</button>
+            <button id="btn-stop" type="button" disabled>⏹️ Stop</button>
+            <button id="btn-play" type="button" disabled>▶️ Playback</button>
+        </section>
+    </main>
+
+    <!-- Lưu ý: Chưa nhúng script xử lý logic ở giai đoạn này -->
+</body>
+</html>
