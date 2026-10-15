@@ -1,8 +1,12 @@
 import { audioEngine } from './audioEngine.js';
+import { recorder } from './recorder.js';
 
 class DrumKitController {
     constructor() {
         this.pads = document.querySelectorAll('.pad[data-key]');
+        this.btnRecord = document.getElementById('btn-record');
+        this.btnStop = document.getElementById('btn-stop');
+        this.btnPlay = document.getElementById('btn-play');
         this.init();
     }
 
@@ -13,6 +17,27 @@ class DrumKitController {
         // Lắng nghe sự kiện kết thúc transition để xóa hiệu ứng UI
         this.pads.forEach(pad => {
             pad.addEventListener('transitionend', this.removeTransition.bind(this));
+        });
+
+        // Liên kết sự kiện nút Record
+        this.btnRecord.addEventListener('click', () => {
+            recorder.startRecording();
+            this.btnRecord.disabled = true;
+            this.btnStop.disabled = false;
+            this.btnPlay.disabled = true;
+        });
+
+        // Liên kết sự kiện nút Stop
+        this.btnStop.addEventListener('click', () => {
+            recorder.stopRecording();
+            this.btnRecord.disabled = false;
+            this.btnStop.disabled = true;
+            this.btnPlay.disabled = false;
+        });
+
+        // Liên kết sự kiện nút Playback
+        this.btnPlay.addEventListener('click', () => {
+            recorder.playRecording();
         });
     }
 
@@ -35,6 +60,9 @@ class DrumKitController {
 
         // Thêm hiệu ứng thị giác
         pad.classList.add('playing');
+        
+        // Ghi lại nhịp điệu vào hàng đợi FIFO (nếu đang bật Record)
+        recorder.recordBeat(soundName);
     }
 
     removeTransition(event) {
